@@ -1,0 +1,27 @@
+<ion-content class="page-login" [fullscreen]="true">
+  <div class="logo">
+    <img src="assets/icon/horavital.png" alt="logo">
+  </div>
+
+  <ion-card class="form-card">
+    <ion-item>
+      <ion-input fill="outline" placeholder="Email" type="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input fill="outline" placeholder="Senha" type="password">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+
+    <ion-button class="submit" [routerLink]="['/tabs/tab1']">Entrar</ion-button>
+
+    <ion-button class=" google-btn">
+      <ion-icon name="logo-google"></ion-icon>
+      Continuar com Google
+    </ion-button>
+
+    <ion-button class="register" [routerLink]="['/cadastro']">Registrar-se</ion-button>
+  </ion-card>
+
+</ion-content>
