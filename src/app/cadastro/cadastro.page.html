@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true">
+  <div class="logo-cadastro">
+    <img src="assets/icon/horavital.png" alt="logo">
+  </div>
+  <ion-card>
+    <ion-item>
+      <ion-input fill="outline" placeholder="Nome Completo" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input fill="outline" placeholder="Email" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input fill="outline" placeholder="CPF" type=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input fill="outline" placeholder="Senha" type="password"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input fill="outline" placeholder="Confirmação de senha" type="password"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+    </ion-item>
+    <ion-button class="submit-button" [routerLink]="['/login']">Cadastrar</ion-button>
+  </ion-card>
+
+</ion-content>
