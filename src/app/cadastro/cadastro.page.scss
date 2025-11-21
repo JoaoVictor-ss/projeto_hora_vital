@@ -1,11 +1,11 @@
 ion-card {
   --max-width: 100%;
   background: transparent;
-  padding: 18px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: 480px;
+  height: 490px;
   box-shadow: none;
 }
 
@@ -14,7 +14,7 @@ ion-card {
   --color: white;
   --border-radius: 4px;
   width: 50%;
-  margin: 50px auto 0 auto;
+  margin: 5px auto 0 auto;
 }
 
 .logo-cadastro img {
@@ -22,4 +22,20 @@ ion-card {
   height: 150px;
   margin-left: 125px;
   padding: 20px;
+}
+
+.alturaIdade {
+  margin-right: 10px;
+}
+
+.pesoSexo {
+  margin-right: 10px;
+}
+
+.doençasContato {
+  margin-right: 10px;
+}
+
+.email {
+  margin-top: 10px;
 }
