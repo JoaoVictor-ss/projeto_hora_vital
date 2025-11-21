@@ -1,0 +1,68 @@
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+ion-card {
+  margin: 35px;
+  padding: 20px;
+  height: 400px;
+  background-color: lightgray;
+}
+
+.fotoPerfil {
+  font-size: 60px;
+  color: gray;
+  display: block;
+  margin: 30px auto;
+}
+
+.alturaPeso {
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+  color: black;
+  justify-items: center;
+}
+
+.idadeSexo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  font-size: large;
+  color: black;
+}
+
+.doenças {
+  display: flex;
+  margin-top: 40px;
+  font-size: large;
+  color: black;
+}
+
+.email {
+  display: flex;
+  margin-top: 40px;
+  font-size: large;
+  color: black;
+}
+
+.telefone {
+  display: flex;
+  margin-top: 30px;
+  font-size: large;
+  color: black;
+}
+
+.editarPerfil {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.sair {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: white;
+}
