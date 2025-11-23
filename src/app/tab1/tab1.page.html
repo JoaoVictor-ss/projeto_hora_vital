@@ -7,58 +7,109 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <!-- 🔓 Botão invisível que libera o áudio -->
+  <ion-button (click)="habilitarAudio()" style="opacity:0; height:0; width:0; position:absolute;">
+  </ion-button>
+
+  <!-- ÁUDIO REAL NO HTML (IMPORTANTÍSSIMO) -->
+  <audio id="alarmeAudio" src="assets/sounds/alarm.mp3"></audio>
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title class="cardTitle">Gripe Comum</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-thumbnail slot="end">
-          <img src="../../assets/icon/horavital.png" />
-        </ion-thumbnail>
-        <div class="medicamentos">
+
+  <!-- CARD 1 – Gripe Comum -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="cardTitle">Gripe Comum</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+
+        <!-- DIPIRONA -->
+        <ion-item>
+          <ion-thumbnail slot="end">
+            <img src="../../assets/icon/horavital.png" />
+          </ion-thumbnail>
+
           <ion-label>
             Dipirona 1G
             <p><ion-icon name="time-outline"></ion-icon> 00:00 • 06:00 • 12:00 • 18:00</p>
             <p><ion-icon name="calendar"></ion-icon> 5 Dias</p>
+            <p style="display:flex; align-items:center; gap:6px;">
+              <ion-icon name="time-outline"></ion-icon>
+              00:00 • 06:00 • 12:00 • 18:00
+
+              <!-- BOTÃO EDITAR HORÁRIO -->
+              <ion-button fill="clear" size="small" style="margin-left:8px;" (click)="editarHorario('dipirona')">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+            </p>
           </ion-label>
+
+          <ion-button fill="clear" (click)="toggleAlarm('dipirona')">
+            <ion-icon [name]="alarms['dipirona'] ? 'notifications' : 'notifications-off'"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <!-- NEOPIRIDIN -->
+        <ion-item>
+          <ion-thumbnail slot="end">
+            <img src="../../assets/icon/horavital.png" />
+          </ion-thumbnail>
+
           <ion-label>
             Neopiridin
             <p><ion-icon name="time-outline"></ion-icon> 00:00 • 08:00 • 16:00</p>
             <p><ion-icon name="calendar"></ion-icon> 5 Dias</p>
           </ion-label>
-        </div>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title class="cardTitle">Anti Concepcional</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-thumbnail slot="end">
-          <img alt="Silhouette of mountains" src="../../assets/icon/horavital.png" />
-        </ion-thumbnail>
-        <div>
+          <ion-button fill="clear" (click)="toggleAlarm('neopiridin')">
+            <ion-icon [name]="alarms['neopiridin'] ? 'notifications' : 'notifications-off'"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- CARD 2 – Anti Concepcional -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="cardTitle">Anti Concepcional</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+
+        <!-- ALEXA -->
+        <ion-item>
+          <ion-thumbnail slot="end">
+            <img src="../../assets/icon/horavital.png" />
+          </ion-thumbnail>
+
           <ion-label>
             Alexa
             <p><ion-icon name="time-outline"></ion-icon> 22 hrs</p>
             <p><ion-icon name="calendar"></ion-icon> Uso Contínuo</p>
           </ion-label>
-        </div>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
+
+          <ion-button fill="clear" (click)="toggleAlarm('alexa')">
+            <ion-icon [name]="alarms['alexa'] ? 'notifications' : 'notifications-off'"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botão para parar alarme -->
+  <ion-button *ngIf="alarmeTocando" expand="block" color="danger" (click)="desligarAlarme()">
+    Parar Alarme
+  </ion-button>
 
 </ion-content>
