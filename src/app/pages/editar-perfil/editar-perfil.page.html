@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="avatar-container">
+    <ion-icon name="person-circle-outline" size="large" style="font-size: 80px; color: gray;"></ion-icon>
+  </div>
+
+  <ion-list lines="none">
+
+    <ion-item>
+      <ion-input label="Nome Completo" label-placement="floating" fill="outline" [(ngModel)]="usuario.nome">
+      </ion-input>
+    </ion-item>
+
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-input label="Altura (m)" type="number" label-placement="floating" fill="outline" [(ngModel)]="usuario.altura">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-input label="Peso (kg)" type="number" label-placement="floating" fill="outline" [(ngModel)]="usuario.peso">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-input label="Idade" type="number" label-placement="floating" fill="outline" [(ngModel)]="usuario.idade">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Sexo" label-placement="floating" fill="outline" [(ngModel)]="usuario.sexo">
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="feminino">Feminino</ion-select-option>
+        <ion-select-option value="outro">Outro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea label="Doenças / Condições" label-placement="floating" fill="outline" rows="3" [(ngModel)]="usuario.doencas">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email" type="email" label-placement="floating" fill="outline" [(ngModel)]="usuario.email">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Telefone" type="tel" label-placement="floating" fill="outline" [(ngModel)]="usuario.telefone">
+      </ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" color="primary" (click)="salvarPerfil()">
+      SALVAR ALTERAÇÕES
+    </ion-button>
+  </div>
+
+</ion-content>

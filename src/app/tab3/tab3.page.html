@@ -1,69 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Histórico de lembretes
-    </ion-title>
+    <ion-title>Histórico de lembretes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Histórico</ion-title>
     </ion-toolbar>
   </ion-header>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title class="cardTitle">Gripe Comum</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-thumbnail slot="end">
-          <img src="../../assets/icon/horavital.png" />
-        </ion-thumbnail>
-        <div class="medicamentos">
-          <ion-label>
-            Dipirona 1G
-            <p><ion-icon name="time-outline"></ion-icon> 00:00 • 06:00 • 12:00 • 18:00</p>
-            <p><ion-icon name="calendar"></ion-icon> 30/09/2025</p>
-            <p><ion-icon name="calendar"></ion-icon> 04/10/2025</p>
-          </ion-label>
-          <ion-label>
-            Neopiridin
-            <p><ion-icon name="time-outline"></ion-icon> 00:00 • 06:00 • 12:00 • 18:00</p>
-            <p><ion-icon name="calendar"></ion-icon> 30/09/2025</p>
-            <p><ion-icon name="calendar"></ion-icon> 04/10/2025</p>
-            <p>Observação: Melhora em 5 dias</p>
-          </ion-label>
-        </div>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title class="cardTitle">Anti Concepcional</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-list>
-      <ion-item>
-        <ion-thumbnail slot="end">
-          <img alt="Silhouette of mountains" src="../../assets/icon/horavital.png" />
-        </ion-thumbnail>
-        <div>
-          <ion-label>
-            Cerazzete
-            <p><ion-icon name="time-outline"></ion-icon> 22 horas</p>
-            <p><ion-icon name="calendar"></ion-icon> 24/10/2024</p>
-            <p><ion-icon name="calendar"></ion-icon> 01/10/2025</p>
-            <p>Observação: Troca de remédio</p>
+  <div *ngIf="historico.length === 0" style="text-align: center; margin-top: 50px; color: gray;">
+    <p>Nenhum histórico encontrado.</p>
+  </div>
+
+  <ion-card *ngFor="let grupo of historico; let i = index">
+    <ion-card-header>
+      <ion-card-title class="cardTitle">{{ grupo.titulo }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="none">
+        
+        <ion-item *ngFor="let remedio of grupo.medicamentos; let j = index">
+          
+          <ion-thumbnail slot="start">
+            <img [src]="remedio.imagem" alt="Remédio" />
+          </ion-thumbnail>
+
+          <ion-label class="ion-text-wrap">
+            <h2><strong>{{ remedio.nome }}</strong></h2>
+            
+            <p>
+              <ion-icon name="time-outline" style="vertical-align: middle;"></ion-icon> 
+              {{ remedio.horarios }}
+            </p>
+            
+            <p>
+              <ion-icon name="calendar" style="vertical-align: middle;"></ion-icon> 
+              {{ remedio.inicio }}
+            </p>
+            
+            <p *ngIf="remedio.fim">
+              <ion-icon name="calendar" style="vertical-align: middle;"></ion-icon> 
+              {{ remedio.fim }}
+            </p>
+
+            <p *ngIf="remedio.obs" style="margin-top: 4px; color: var(--ion-color-medium);">
+              Obs: {{ remedio.obs }}
+            </p>
           </ion-label>
-        </div>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
+
+          <ion-button slot="end" fill="clear" color="danger" (click)="confirmarRemocao(i, j)">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
