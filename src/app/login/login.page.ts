@@ -14,9 +14,8 @@ import {
   IonCard,
   IonIcon,
 } from '@ionic/angular/standalone';
-import { logoGoogle } from 'ionicons/icons';
-import { addIcons } from 'ionicons';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -37,12 +36,35 @@ import { RouterLink } from '@angular/router';
     IonImg,
     IonCard,
     IonIcon,
-    RouterLink,
+    RouterLink
   ],
 })
 export class LoginPage implements OnInit {
-  constructor() {}
+
+  email: string = '';
+  senha: string = '';
+
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
+
+
+  async entrar() {
+
+    if(!this.email || !this.senha) {
+      alert('Por favor, preencha email e senha!');
+      return;
+    }
+
+    try {
+      await this.auth.login(this.email, this.senha);
+      alert('Login realizado com sucesso!');
+
+      this.router.navigate(['tabs/tabs/tab1']);
+
+    } catch (error : any) {
+
+    alert ('Erro ao fazer Login ' + error.message);
+    }
+  }
 }
-addIcons({ logoGoogle });

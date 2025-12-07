@@ -13,6 +13,8 @@ import {
   IonButton,
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth';
+import { onAuthStateChanged, User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-perfil',
@@ -35,7 +37,16 @@ import { RouterLink } from '@angular/router';
   ],
 })
 export class PerfilPage implements OnInit {
-  constructor() {}
+  userData: any = null;
 
-  ngOnInit() {}
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    onAuthStateChanged(this.authService['auth'], async (user: User | null) => {
+      if (user) {
+        this.userData = await this.authService.getUserData(user.uid);
+      }
+    });
+  }
 }

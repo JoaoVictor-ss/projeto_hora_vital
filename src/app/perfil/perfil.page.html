@@ -1,32 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-icon class="fotoPerfil" name="person-outline"></ion-icon>
 
-  <h2>Fulaninho da Silva Souza</h2>
+  <h2>{{userData?.nome || 'Nome não Disponível'}}</h2>
 
   <ion-card>
 
     <div class="alturaPeso">
-      <ion-label><strong>Altura:</strong></ion-label>
-      <ion-label><strong>Peso:</strong></ion-label>
+      <ion-label><strong>Altura:</strong>{{userData?.altura || '-'}}</ion-label>
+      <ion-label><strong>Peso:</strong>{{userData?.peso || '-'}}</ion-label>
     </div>
     <div class="idadeSexo">
-      <ion-label><strong>Idade:</strong></ion-label>
-      <ion-label><strong>Sexo:</strong></ion-label>
+      <ion-label><strong>Idade:</strong>{{userData?.idade || '-'}}</ion-label>
+      <ion-label><strong>Sexo:</strong>{{userData?.sexo || '-'}}</ion-label>
     </div>
     <div class="doenças">
-      <ion-label><strong>Doenças:</strong></ion-label>
+      <ion-label><strong>Doenças:</strong>{{userData?.doencas || '-'}}</ion-label>
     </div>
     <div class="email">
-      <ion-label><strong>Email:</strong></ion-label>
+      <ion-label><strong>Email:</strong>{{userData?.email || '-'}}</ion-label>
     </div>
     <div class="telefone">
-      <ion-label><strong>Telefone para contato:</strong></ion-label>
+      <ion-label><strong>Telefone para contato:</strong>{{userData?.telefone || '-'}}</ion-label>
     </div>
     <div>
       <ion-button expand="block" routerLink="/editar-perfil">

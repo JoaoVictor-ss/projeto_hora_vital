@@ -6,42 +6,42 @@
   <ion-card>
 
     <ion-item>
-      <ion-input fill="outline" placeholder="Nome Completo" type="text"></ion-input>
+      <ion-input fill="outline" placeholder="Nome Completo" type="text" [(ngModel)]="nome"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input fill="outline" placeholder="Email" type="text"></ion-input>
+      <ion-input fill="outline" placeholder="Email" type="text" [(ngModel)]="email"> </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input fill="outline" placeholder="CPF" type=""></ion-input>
+      <ion-input fill="outline" placeholder="CPF" type="text" [(ngModel)]="cpf"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input class="alturaIdade" fill="outline" aria-label="Primary input" placeholder="Altura"></ion-input>
+      <ion-input class="alturaIdade" fill="outline" aria-label="Primary input" placeholder="Altura" [(ngModel)]="altura"></ion-input>
 
-      <ion-input fill="outline" aria-label="Secondary input" placeholder="Idade"></ion-input>
+      <ion-input fill="outline" aria-label="Secondary input" placeholder="Idade" [(ngModel)]="idade"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input class="pesoSexo" fill="outline" aria-label="Primary input" placeholder="Peso"></ion-input>
+      <ion-input class="pesoSexo" fill="outline" aria-label="Primary input" placeholder="Peso" [(ngModel)]="peso"></ion-input>
 
-      <ion-input fill="outline" aria-label="Secondary input" color="secondary" placeholder="Sexo"></ion-input>
+      <ion-input fill="outline" aria-label="Secondary input" color="secondary" placeholder="Sexo" [(ngModel)]="sexo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input class="doençasContato" fill="outline" aria-label="Primary input" placeholder="Doenças"></ion-input>
+      <ion-input class="doençasContato" fill="outline" aria-label="Primary input" placeholder="Doenças" [(ngModel)]="doencas"></ion-input>
 
-      <ion-input fill="outline" aria-label="Secondary input" placeholder="Telefone"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="Senha" type="password"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+      <ion-input fill="outline" aria-label="Secondary input" placeholder="Telefone" [(ngModel)]="telefone"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input fill="outline" placeholder="Confirmação de senha" type="password"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+      <ion-input fill="outline" placeholder="Senha" type="password" [(ngModel)]="senha"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
     </ion-item>
 
-    <ion-button class="submit-button" [routerLink]="['/login']">Cadastrar</ion-button>
+    <ion-item>
+      <ion-input fill="outline" placeholder="Confirmação de senha" type="password" [(ngModel)]="confirmarSenha"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+    </ion-item>
+
+    <ion-button class="submit-button" (click)="registrar()">Cadastrar</ion-button>
   </ion-card>
 
 </ion-content>
