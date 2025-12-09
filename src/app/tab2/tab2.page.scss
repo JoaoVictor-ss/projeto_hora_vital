@@ -1,41 +1,68 @@
-ion-item {
-  padding-top: 0px;
-  --padding-start: 2px;
-  --inner-padding-end: 0;
+// Fundo suave para a página
+ion-content {
+  --background: #f4f5f8; // Um cinza bem clarinho
 }
-ion-title {
-  color: black;
-  font-size: 1.5rem;
-  font-weight: bold;
+
+.header-container {
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  h1 {
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--ion-color-dark);
+    margin-bottom: 5px;
+    line-height: 1.1;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--ion-color-medium);
+    margin-top: 0;
+  }
 }
-.adTitle {
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding-left: 16px;
+
+.form-wrapper {
+  padding: 0 16px 40px 16px; // Espaçamento lateral e inferior
+  background: transparent;
 }
-.lembreCard{
-    color: rgb(190, 190, 190);
+
+.input-group {
+  margin-bottom: 20px;
+
+  // Ajuste fino nos ícones dentro dos inputs
+  ion-icon {
+    font-size: 20px;
+    color: var(--ion-color-primary);
+    margin-right: 8px;
+  }
+
+  // Ajuste específico para o ícone do textarea ficar no topo
+  .textarea-icon {
+    margin-top: 14px; 
+    align-self: flex-start;
+  }
+
+  .helper-text {
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
 }
-.lembreContainer {
-  width: 100%;
-  flex-direction: row;
+
+// Estilo do Input Outline (Borda Arredondada e Suave)
+ion-input, ion-textarea {
+  --background: #ffffff;
+  --border-radius: 12px; // Bordas bem redondas
+  --border-color: #e0e0e0;
+  --highlight-color-focused: var(--ion-color-primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03); // Sombra super leve
 }
-.lembreContainer ion-input {
-  padding-left: 16px;
-  padding-right: 16px;
-  height: 32px;
-  font-size: 1rem;
-  margin: 10px 0 10px 0;
-  border-radius: 8px;
-}
-.lembreItem {
-  padding: 10px 0 0 10px;
-}
-.lembreContainer h2 {
-  font-size: 1rem;
-  font-weight: bold;
-  padding-left: 16px;
-}
-.medCheckbox {
-  padding-left: 16px;
+
+// Botão de Salvar
+.btn-save {
+  --box-shadow: 0 8px 16px rgba(var(--ion-color-primary-rgb), 0.3); // Sombra colorida
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
 }

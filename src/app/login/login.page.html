@@ -1,27 +1,50 @@
-<ion-content class="page-login" [fullscreen]="true">
-  <div class="logo">
-    <img src="assets/icon/horavital.png" alt="logo">
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <div class="login-container">
+    
+    <div class="logo-area">
+      <ion-icon name="medkit" color="primary"></ion-icon>
+      <h1>Hora Vital</h1>
+      <p>Seu assistente de saúde</p>
+    </div>
+
+    <div class="form-area">
+      
+      <ion-item fill="outline" class="ion-margin-bottom custom-input">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input 
+          label="Email" 
+          labelPlacement="floating" 
+          placeholder="seu@email.com"
+          [(ngModel)]="email"
+          type="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item fill="outline" class="ion-margin-bottom custom-input">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input 
+          label="Senha" 
+          labelPlacement="floating" 
+          type="password"
+          [(ngModel)]="senha"
+          placeholder="******">
+        </ion-input>
+      </ion-item>
+
+      <ion-button expand="block" size="large" (click)="fazerLogin()">
+        ENTRAR
+      </ion-button>
+
+      <div class="footer-links">
+        <p>Não tem conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+        
+        <p (click)="recuperarSenha()" style="cursor: pointer; text-decoration: underline;">
+          <small>Esqueci minha senha</small>
+        </p>
+      </div>
+
+    </div>
   </div>
-
-  <ion-card class="form-card">
-    <ion-item>
-      <ion-input fill="outline" placeholder="Email" type="Email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="Senha" type="password">
-        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
-    </ion-item>
-
-    <ion-button class="submit" [routerLink]="['/tabs/tab1']">Entrar</ion-button>
-
-    <ion-button class=" google-btn">
-      <ion-icon name="logo-google"></ion-icon>
-      Continuar com Google
-    </ion-button>
-
-    <ion-button class="register" [routerLink]="['/cadastro']">Registrar-se</ion-button>
-  </ion-card>
 
 </ion-content>

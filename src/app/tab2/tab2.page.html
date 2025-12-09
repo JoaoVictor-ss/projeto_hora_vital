@@ -1,55 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Adicionar Lembrete</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Novo Lembrete</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Novo Lembrete</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="bg-light">
+  
+  <div class="header-container ion-padding">
+    <h1>Adicionar<br>Medicamento</h1>
+    <p>Configure o horário e não esqueça mais.</p>
+  </div>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Novo Medicamento</ion-card-title>
-      <ion-card-subtitle>Preencha os dados abaixo</ion-card-subtitle>
-    </ion-card-header>
+  <div class="form-wrapper">
+    <div class="input-group">
+      <ion-input
+        label="Nome do Medicamento"
+        label-placement="floating"
+        fill="outline"
+        placeholder="Ex: Dipirona 500mg"
+        [(ngModel)]="novoLembrete.nome"
+        shape="round">
+        <ion-icon slot="start" name="medkit-outline" aria-hidden="true"></ion-icon>
+      </ion-input>
+    </div>
 
-    <ion-card-content>
-      <ion-list lines="none">
+    <div class="input-group">
+      <ion-input
+        label="Horário"
+        label-placement="floating"
+        fill="outline"
+        type="time"
+        [(ngModel)]="novoLembrete.horario"
+        shape="round">
+        <ion-icon slot="start" name="alarm-outline" aria-hidden="true"></ion-icon>
+      </ion-input>
+      <ion-note color="medium" class="ion-padding-start helper-text">Que horas deve tocar?</ion-note>
+    </div>
 
-        <ion-item>
-          <ion-input label="Nome do Remédio" label-placement="floating" fill="outline" placeholder="Ex: Dipirona" [(ngModel)]="novoLembrete.nomeRemedio">
-          </ion-input>
-        </ion-item>
+    <div class="input-group">
+      <ion-input
+        label="Data de Início"
+        label-placement="floating"
+        fill="outline"
+        type="date"
+        [(ngModel)]="novoLembrete.dataInicio"
+        shape="round">
+        <ion-icon slot="start" name="calendar-outline" aria-hidden="true"></ion-icon>
+      </ion-input>
+    </div>
 
-        <ion-item class="ion-margin-top">
-          <ion-input label="Horário" type="time" label-placement="floating" fill="outline" [(ngModel)]="novoLembrete.horario">
-          </ion-input>
-        </ion-item>
+    <div class="input-group">
+      <ion-textarea
+        label="Observações / Dosagem"
+        label-placement="floating"
+        fill="outline"
+        placeholder="Ex: Tomar após o almoço..."
+        [(ngModel)]="novoLembrete.observacoes"
+        shape="round"
+        rows="3">
+        <ion-icon slot="start" name="document-text-outline" aria-hidden="true" class="textarea-icon"></ion-icon>
+      </ion-textarea>
+    </div>
 
-        <ion-item class="ion-margin-top">
-          <ion-input label="Data de Início" type="date" label-placement="floating" fill="outline" [(ngModel)]="novoLembrete.dataInicio">
-          </ion-input>
-        </ion-item>
+    <div class="ion-padding-top">
+      <ion-button expand="block" shape="round" size="large" (click)="salvarLembrete()" class="btn-save">
+        <ion-icon slot="start" name="save-outline"></ion-icon>
+        SALVAR LEMBRETE
+      </ion-button>
+    </div>
 
-        <ion-item class="ion-margin-top">
-          <ion-textarea label="Observações" label-placement="floating" fill="outline" rows="3" placeholder="Ex: Tomar após o almoço" [(ngModel)]="novoLembrete.observacao">
-          </ion-textarea>
-        </ion-item>
-
-      </ion-list>
-
-      <div class="ion-margin-top">
-        <ion-button expand="block" (click)="salvarLembrete()">
-          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
-          SALVAR LEMBRETE
-        </ion-button>
-      </div>
-
-    </ion-card-content>
-  </ion-card>
-
+  </div>
 </ion-content>

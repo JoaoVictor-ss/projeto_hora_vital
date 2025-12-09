@@ -1,47 +1,69 @@
-<ion-content [fullscreen]="true">
-  <div class="logo-cadastro">
-    <img src="assets/icon/horavital.png" alt="logo">
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar Conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="cadastro-container">
+    
+    <div class="header-text">
+      <ion-icon name="person-add-outline" color="primary"></ion-icon>
+      <h2>Bem-vindo!</h2>
+      <p>Preencha seus dados para começar.</p>
+    </div>
+
+    <div class="form-area">
+      
+      <ion-item fill="outline" class="ion-margin-bottom custom-input">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-input 
+          label="Nome Completo" 
+          labelPlacement="floating" 
+          [(ngModel)]="nome"
+          type="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-item fill="outline" class="ion-margin-bottom custom-input">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input 
+          label="E-mail" 
+          labelPlacement="floating" 
+          [(ngModel)]="email"
+          type="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item fill="outline" class="ion-margin-bottom custom-input">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input 
+          label="Senha" 
+          labelPlacement="floating" 
+          [(ngModel)]="senha"
+          type="password">
+        </ion-input>
+      </ion-item>
+
+      <ion-item fill="outline" class="ion-margin-bottom custom-input">
+        <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
+        <ion-input 
+          label="Confirmar Senha" 
+          labelPlacement="floating" 
+          [(ngModel)]="confirmarSenha"
+          type="password">
+        </ion-input>
+      </ion-item>
+
+      <ion-button expand="block" size="large" (click)="cadastrar()" class="btn-cadastro">
+        CADASTRAR
+      </ion-button>
+
+    </div>
   </div>
-
-  <ion-card>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="Nome Completo" type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="Email" type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="CPF" type=""></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input class="alturaIdade" fill="outline" aria-label="Primary input" placeholder="Altura"></ion-input>
-
-      <ion-input fill="outline" aria-label="Secondary input" placeholder="Idade"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input class="pesoSexo" fill="outline" aria-label="Primary input" placeholder="Peso"></ion-input>
-
-      <ion-input fill="outline" aria-label="Secondary input" color="secondary" placeholder="Sexo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input class="doençasContato" fill="outline" aria-label="Primary input" placeholder="Doenças"></ion-input>
-
-      <ion-input fill="outline" aria-label="Secondary input" placeholder="Telefone"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="Senha" type="password"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input fill="outline" placeholder="Confirmação de senha" type="password"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-    </ion-item>
-
-    <ion-button class="submit-button" [routerLink]="['/login']">Cadastrar</ion-button>
-  </ion-card>
 
 </ion-content>
